@@ -15,8 +15,16 @@ set number relativenumber
 set ruler
 set smartcase
 
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
 :let mapleader = "\<Space>"
 imap jk <Esc>
+
+noremap <Leader>j ^
+noremap <Leader>k $
 
 " Seamlessly treat visual lines as actual lines when moving around.
 noremap j gj
@@ -98,6 +106,7 @@ if executable('rg')
   command! -bang -nargs=*
     \ FindRg call fzf#vim#grep('
     \ rg --column --line-number --no-heading --hidden --follow --color "always"
+    \ --smart-case
     \ '.shellescape(<q-args>). '
     \ '. projectdirs. '
     \ ', 1, <bang>0)
