@@ -1,24 +1,51 @@
 
 colorscheme jellybeans
 
-set number relativenumber
-set completeopt-=preview
-set smartcase
-set ignorecase
-set incsearch
-set hlsearch
-set encoding=utf-8
-set guicursor+=a:blinkon0
-set cursorline
 set autoread
 set autowriteall
+set background=dark
+set completeopt-=preview
+set cursorline
+set encoding=utf-8
+set guicursor+=a:blinkon0
+set hlsearch
+set ignorecase
+set incsearch
+set number relativenumber
+set ruler
+set smartcase
 
 :let mapleader = "\<Space>"
 imap jk <Esc>
+
+" Seamlessly treat visual lines as actual lines when moving around.
+noremap j gj
+noremap k gk
+noremap <Down> gj
+noremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <Tab> <C-w>w
+
 nnoremap ;; $a;<Esc>
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
 nnoremap <Leader>yf :let @+=expand("%")<CR>
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" Keep cursor at the bottom of the visual selection after you yank it.
+vmap y ygv<Esc>
+
+nnoremap * *``
+nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 nnoremap <Leader><TAB> :History<CR>
 nnoremap <Leader>p :Files<CR>
@@ -29,6 +56,7 @@ nnoremap <Leader>vf :NERDTreeFind<CR>
 nnoremap <Leader>vd :YcmDiags<CR>
 nnoremap <Leader>vo :GoogleOutlineWindow<CR>
 nnoremap <Leader>vh :YcmCompleter GetDoc<CR>
+nnoremap <silent> <Leader>vc :call QuickFix_toggle()<CR>
 
 nnoremap gd :YcmCompleter GoTo<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
@@ -36,13 +64,30 @@ nnoremap gt :YcmCompleter GoToType<CR>;
 
 nnoremap <Leader>rf :YcmCompleter FixIt<CR>
 nnoremap <Leader>ri :YcmCompleter OrganizeImports<CR>
-nnoremap <Leader>rr :YcmCompleter RefactorRename
+nnoremap <Leader>rr :YcmCompleter RefactorRename<Space>
 nnoremap <Leader>rp :FormatCode<CR>
 
-let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
+" Press * to search for the term under the cursor or a visual selection and
+" then press a key below to replace all instances of it in the current file.
+nnoremap <Leader>s :%s///g<Left><Left>
+" The same as above but instead of acting on the whole file it will be
+" restricted to the previously visually selected range. You can do that by
+" pressing *, visually selecting the range you want it to apply to and then
+" press a key below to replace all instances of it in the current selection.
+xnoremap <Leader>s :s///g<Left><Left>
+
+" Type a replacement term and press . to repeat the replacement again. Useful
+" for replacing a few instances of the term (comparable to multiple cursors).
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:strip_whitespace_confirm=0
+let g:strip_whitespace_on_save=1
+let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
 
 if executable('rg')
   set grepprg=rg\ --color=never\ --vimgrep
@@ -71,3 +116,16 @@ if &term == 'xterm-256color' || &term == 'screen-256color'
   let &t_SI = "\<Esc>[6 q"
   let &t_EI = "\<Esc>[2 q"
 endi
+
+" Toggle quickfix window.
+function! QuickFix_toggle()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            cclose
+            return
+        endif
+    endfor
+
+    copen
+endfunction
