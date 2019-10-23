@@ -1,5 +1,5 @@
 
-colorscheme jellybeans
+colorscheme tender
 
 set autoread
 set autowriteall
@@ -11,9 +11,12 @@ set guicursor+=a:blinkon0
 set hlsearch
 set ignorecase
 set incsearch
+set mouse=a
 set number relativenumber
 set ruler
 set smartcase
+set splitright
+set splitbelow
 
 set expandtab
 set tabstop=2
@@ -56,6 +59,7 @@ nnoremap * *``
 nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 nnoremap <Leader><TAB> :History<CR>
+nnoremap <Leader>` :History:<CR>
 nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>fe :FindRg<Space>
 nnoremap <Leader>fb :BLines<CR>
@@ -68,7 +72,7 @@ nnoremap <silent> <Leader>vc :call QuickFix_toggle()<CR>
 
 nnoremap gd :YcmCompleter GoTo<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
-nnoremap gt :YcmCompleter GoToType<CR>;
+nnoremap gt :YcmCompleter GoToType<CR>
 
 nnoremap <Leader>rf :YcmCompleter FixIt<CR>
 nnoremap <Leader>ri :YcmCompleter OrganizeImports<CR>
@@ -96,6 +100,22 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
+let g:ycm_max_num_candidates=10
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'gitcommit': 1,
+      \ 'hgcommit': 1,
+      \ 'mail': 1
+      \}
+let g:airline#extensions#tabline#enabled = 1
 
 if executable('rg')
   set grepprg=rg\ --color=never\ --vimgrep
