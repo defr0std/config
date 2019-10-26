@@ -1,4 +1,3 @@
-
 colorscheme tender
 
 set autoread
@@ -17,6 +16,7 @@ set ruler
 set smartcase
 set splitright
 set splitbelow
+set updatetime=1000
 
 set expandtab
 set tabstop=2
@@ -41,11 +41,10 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
-nnoremap <Tab> <C-w>w
 
 nnoremap ;; $a;<Esc>
-nnoremap <Leader>o o<ESC>
-nnoremap <Leader>O O<ESC>
+nnoremap <Space><Space> o<ESC>
+nnoremap <Space><S-Space> O<ESC>
 nnoremap <Leader>yf :let @+=expand("%")<CR>
 
 " Prevent x from overriding what's in the clipboard.
@@ -58,6 +57,7 @@ vmap y ygv<Esc>
 nnoremap * *``
 nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
+nnoremap <Leader>w :wa<CR>
 nnoremap <Leader><TAB> :History<CR>
 nnoremap <Leader>` :History:<CR>
 nnoremap <Leader>p :Files<CR>
@@ -92,6 +92,8 @@ xnoremap <Leader>s :s///g<Left><Left>
 " for replacing a few instances of the term (comparable to multiple cursors).
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
+au FileType qf wincmd J
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:UltiSnipsExpandTrigger = "<c-j>"
