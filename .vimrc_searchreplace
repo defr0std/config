@@ -1,0 +1,45 @@
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'stefandtw/quickfix-reflector.vim'
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+nnoremap * *``
+nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
+nnoremap <Leader><TAB> :History<CR>
+nnoremap <Leader>` :History:<CR>
+nnoremap <Leader>p :Files<CR>
+
+nnoremap <Leader>fb :BLines<CR>
+
+" Press * to search for the term under the cursor or a visual selection and
+" then press a key below to replace all instances of it in the current file.
+nnoremap <Leader>s :%s///g<Left><Left>
+" The same as above but instead of acting on the whole file it will be
+" restricted to the previously visually selected range. You can do that by
+" pressing *, visually selecting the range you want it to apply to and then
+" press a key below to replace all instances of it in the current selection.
+xnoremap <Leader>s :s///g<Left><Left>
+
+" Type a replacement term and press . to repeat the replacement again. Useful
+" for replacing a few instances of the term (comparable to multiple cursors).
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
+if executable('rg')
+  nnoremap <Leader>fe :FindRg<Space>
+
+  set grepprg=rg\ --color=never\ --vimgrep
+  let $FZF_DEFAULT_COMMAND = 'rg
+    \ '. projectdirs. '
+    \ --files --hidden --follow --glob ""'
+
+  command! -bang -nargs=*
+    \ FindRg call fzf#vim#grep('
+    \ rg --column --line-number --no-heading --hidden --follow --color "always"
+    \ --smart-case
+    \ '.shellescape(<q-args>). '
+    \ '. projectdirs. '
+    \ ', 1, <bang>0)
+endif

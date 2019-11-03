@@ -1,0 +1,23 @@
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"set guifont=Monaco:h14
+
+set background=dark
+set cursorline
+set guicursor+=a:blinkon0
+set hlsearch
+set mouse=a
+set number relativenumber
+set ruler
+set splitright
+set splitbelow
+
+let g:airline#extensions#tabline#enabled = 1
+
+" Use a blinking upright bar cursor in Insert mode, a blinking block in normal
+if &term == 'xterm-256color' || &term == 'screen-256color'
+  let &t_SI = "\<Esc>[6 q"
+  let &t_EI = "\<Esc>[2 q"
+endi

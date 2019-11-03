@@ -1,0 +1,2 @@
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'davidhalter/jedi-vim'
