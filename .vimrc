@@ -46,6 +46,7 @@ nnoremap ;; $a;<Esc>
 nnoremap <Space><Space> o<ESC>
 nnoremap <Space><S-Space> O<ESC>
 nnoremap <Leader>yf :let @+=expand("%")<CR>
+nnoremap <Leader>yd :let @+=expand('%:p:h')<CR>
 
 " Prevent x from overriding what's in the clipboard.
 noremap x "_x
