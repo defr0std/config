@@ -1,0 +1,35 @@
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mhinz/vim-signify'
+Plug 'farmergreg/vim-lastplace'
+"Plugin 'google/vim-maktaba'
+"Plugin 'google/vim-codefmt'
+
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:strip_whitespace_confirm=0
+let g:strip_whitespace_on_save=1
+
+noremap <Leader>j ^
+noremap <Leader>k $
+
+nnoremap ;; $a;<Esc>
+nnoremap <Space><Space> o<ESC>
+nnoremap <Space><S-Space> O<ESC>
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" Keep cursor at the bottom of the visual selection after you yank it.
+vmap y ygv<Esc>
