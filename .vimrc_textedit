@@ -35,3 +35,5 @@ noremap X "_x
 
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
+
+map <Leader>e <Plug>(easymotion-bd-w)
