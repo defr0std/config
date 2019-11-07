@@ -1,15 +1,15 @@
 call plug#begin('~/.vim/plugged')
 
-source ~/.vimrc_workspace
+runtime .vimrc_workspace
 
-source .vimrc_general
-source .vimrc_ui
-source .vimrc_textedit
-source .vimrc_searchreplace
-source .vimrc_lsp
-source .vimrc_lang
+runtime .vimrc_general
+runtime .vimrc_ui
+runtime .vimrc_texteditm
+runtime .vimrc_searchreplace
+runtime .vimrc_lsp
+runtime .vimrc_lang
 
-source .vimrc_google
+runtime .vimrc_local
 
 call plug#end()
 
