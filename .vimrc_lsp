@@ -65,11 +65,11 @@ nmap <Leader>rp :call CocAction('format')<cr>
 " Fix autofix problem of current line
 nmap <Leader>rf <Plug>(coc-fix-current)
 nmap <Leader>ri :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+nnoremap <Leader>ra :CocAction<cr>
 
 nnoremap <Leader>vh :call <sid>show_documentation()<cr>
-nnoremap <Leader>vo  :<C-u>CocList outline<cr>
-nnoremap <Leader>vd  :<C-u>CocList diagnostics<cr>
-nnoremap <Leader>ac  <Plug>(coc-codeaction)
+nnoremap <Leader>vo :<C-u>CocList outline<cr>
+nnoremap <Leader>vd :<C-u>CocList diagnostics<cr>
 
 nmap <silent> <Leader>c <Plug>(coc-cursors-position)
 
