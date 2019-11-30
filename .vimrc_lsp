@@ -22,6 +22,12 @@ set signcolumn=yes
 set completeopt-=preview
 set completeopt+=noinsert
 
+let g:coc_user_config = {}
+let g:coc_user_config['diagnostic.virtualText']=1
+let g:coc_user_config['html.format.wrapLineLength']=80
+let g:coc_user_config['html.format.wrapAttributes']='force-aligned'
+let g:coc_user_config['prettier.neverIndentImports']=1
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -64,6 +70,8 @@ nnoremap <Leader>vh :call <sid>show_documentation()<cr>
 nnoremap <Leader>vo  :<C-u>CocList outline<cr>
 nnoremap <Leader>vd  :<C-u>CocList diagnostics<cr>
 nnoremap <Leader>ac  <Plug>(coc-codeaction)
+
+nmap <silent> <Leader>c <Plug>(coc-cursors-position)
 
 augroup mygroup
   autocmd!

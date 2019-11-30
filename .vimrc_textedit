@@ -13,6 +13,7 @@ Plug 'jiangmiao/auto-pairs'
 
 set expandtab
 set tabstop=2
+set textwidth=80
 set softtabstop=2
 set shiftwidth=2
 
@@ -26,14 +27,22 @@ noremap <Leader>j ^
 noremap <Leader>k $
 
 nnoremap ;; $a;<Esc>
-nnoremap <Space><Space> o<ESC>
-nnoremap <Space><S-Space> O<ESC>
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
 
-" Prevent x from overriding what's in the clipboard.
-noremap x "_x
-noremap X "_x
+nnoremap x "_x
+
+nnoremap <leader>d "_d
+nnoremap <leader>D "_D
+xnoremap <leader>d "_d
+xnoremap <leader>D "_D
+
+vnoremap p "_dP
+
+nnoremap <leader>hu :SignifyHunkUndo<cr>
+nnoremap <leader>hd :SignifyHunkDiff<cr>
+nnoremap <leader>hh :SignifyDiff<cr>
 
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
 
-map <Leader>e <Plug>(easymotion-bd-w)
