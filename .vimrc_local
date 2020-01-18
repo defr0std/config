@@ -15,7 +15,7 @@ augroup autoformat_settings
 augroup END
 
 Glug add_usings plugin[mappings]
-Glug corpweb plugin[mappings]
+Glug corpweb
 Glug csearch
 Glug blaze plugin[mappings]
 Glug blazedeps plugin[mappings]
