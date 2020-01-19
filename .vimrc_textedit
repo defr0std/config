@@ -27,7 +27,7 @@ let g:strip_whitespace_on_save=1
 noremap <Leader>j ^
 noremap <Leader>k $
 
-nnoremap ; $a;<Esc>
+nnoremap <Leader>; $a;<Esc>
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
 
@@ -50,3 +50,8 @@ nnoremap <leader>mr :diffg RE<cr>
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
 
+map <Leader>e <Plug>(easymotion-bd-w)
+
+nnoremap cmc dt(c%
+nnoremap dmc dt(d%
+nmap ymc vf(%y
