@@ -20,13 +20,14 @@ set shiftwidth=2
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsSnippetDirectories=[$HOME . "/UltiSnips"]
 let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 
 noremap <Leader>j ^
 noremap <Leader>k $
 
-nnoremap ;; $a;<Esc>
+nnoremap ; $a;<Esc>
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
 
@@ -42,6 +43,9 @@ vnoremap p "_dP
 nnoremap <leader>hu :SignifyHunkUndo<cr>
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hh :SignifyDiff<cr>
+
+nnoremap <leader>ml :diffg LO<cr>
+nnoremap <leader>mr :diffg RE<cr>
 
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
