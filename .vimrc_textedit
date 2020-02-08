@@ -43,6 +43,9 @@ nnoremap <leader>hu :SignifyHunkUndo<cr>
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hh :SignifyDiff<cr>
 
+nnoremap <leader>tl :diffg LO<cr>
+nnoremap <leader>tr :diffg RE<cr>
+
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
 
@@ -51,3 +54,9 @@ map <Leader>e <Plug>(easymotion-bd-w)
 nnoremap cmc dt(c%
 nnoremap dmc dt(d%
 nmap ymc vf(%y
+
+nnoremap + "+
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
