@@ -52,3 +52,9 @@ map <Leader>e <Plug>(easymotion-bd-w)
 nnoremap cmc dt(c%
 nnoremap dmc dt(d%
 nmap ymc vf(%y
+
+nnoremap + "+
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
