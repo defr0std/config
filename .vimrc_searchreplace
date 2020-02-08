@@ -9,7 +9,7 @@ nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."
 
 nnoremap <Leader><TAB> :History<CR>
 nnoremap <Leader>` :History:<CR>
-nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>m :Files<CR>
 
 nnoremap <Leader>fb :BLines<CR>
 

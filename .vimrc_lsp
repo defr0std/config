@@ -64,12 +64,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nmap <Leader>rr <Plug>(coc-rename)
-nmap <Leader>rp :call CocAction('format')<cr>
-" Fix autofix problem of current line
-nmap <Leader>rf <Plug>(coc-fix-current)
-nmap <Leader>ri :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
-nnoremap <Leader>ra :CocAction<cr>
+nmap <Leader>r <Plug>(coc-rename)
+nmap <Leader>k :call CocAction('format')<cr>
+nmap <Leader>J <Plug>(coc-fix-current)
+nnoremap <Leader>j :CocAction<cr>
 
 nnoremap <Leader>vh :call <sid>show_documentation()<cr>
 nnoremap <Leader>vo :<C-u>CocList outline<cr>
