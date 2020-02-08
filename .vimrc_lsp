@@ -27,6 +27,10 @@ let g:coc_user_config['diagnostic.virtualText']=1
 let g:coc_user_config['html.format.wrapLineLength']=80
 let g:coc_user_config['html.format.wrapAttributes']='force-aligned'
 let g:coc_user_config['prettier.neverIndentImports']=1
+let g:coc_user_config['typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces']=1
+let g:coc_user_config['typescript.preferences.importModuleSpecifier']='relative'
+let g:coc_user_config['typescript.preferences.quoteStyle']='double'
+let g:coc_user_config['tslint.autoFixOnSave']=1
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -89,3 +93,6 @@ function! s:show_documentation()
   endif
 endfunction
 
+if &diff
+  let g:coc_enabled=0
+endif
