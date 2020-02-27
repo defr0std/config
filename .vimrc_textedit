@@ -13,7 +13,6 @@ Plug 'jiangmiao/auto-pairs'
 
 set expandtab
 set tabstop=2
-set textwidth=80
 set softtabstop=2
 set shiftwidth=2
 
