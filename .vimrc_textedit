@@ -13,7 +13,6 @@ Plug 'jiangmiao/auto-pairs'
 
 set expandtab
 set tabstop=2
-set textwidth=80
 set softtabstop=2
 set shiftwidth=2
 
@@ -22,9 +21,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
-
-noremap <Leader>j ^
-noremap <Leader>k $
 
 nnoremap <Leader>; $a;<Esc>
 nnoremap <Leader>o o<ESC>

@@ -4,7 +4,7 @@ Plug 'stefandtw/quickfix-reflector.vim'
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
-nnoremap * *``
+nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 nnoremap <Leader><TAB> :History<CR>
