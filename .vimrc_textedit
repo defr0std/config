@@ -20,7 +20,6 @@ set shiftwidth=2
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsSnippetDirectories=[$HOME . "/UltiSnips"]
 let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 
