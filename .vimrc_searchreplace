@@ -2,7 +2,21 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'stefandtw/quickfix-reflector.vim'
 
+function! s:open_in_left_split(lines)
+  "exe "vsplit" a:lines[0]
+  ":exe "normal \<C-W>\<H>"
+  ":normal ^W-x
+  ":normal ^W-h
+  ":normal ^W-h
+  "bd
+endfunction
+
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-b': function('s:open_in_left_split')}
 
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <silent><expr> <Leader>* (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
@@ -27,12 +41,14 @@ xnoremap <Leader>s :s///g<Left><Left>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
+let pdir = get(g:, 'projectdirs', $PWD)
+
 if executable('rg')
   nnoremap <Leader>fe :FindRg<Space>
 
   set grepprg=rg\ --color=never\ --vimgrep
   let $FZF_DEFAULT_COMMAND = 'rg
-    \ '. projectdirs. '
+    \ '. pdir. '
     \ --files --hidden --follow --glob ""'
 
   command! -bang -nargs=*
@@ -40,6 +56,6 @@ if executable('rg')
     \ rg --column --line-number --no-heading --hidden --follow --color "always"
     \ --smart-case
     \ '.shellescape(<q-args>). '
-    \ '. projectdirs. '
+    \ '. pdir. '
     \ ', 1, <bang>0)
 endif

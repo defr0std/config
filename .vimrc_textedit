@@ -36,6 +36,9 @@ xnoremap <leader>D "_D
 
 vnoremap p "_dP
 
+nnoremap <leader>x $x
+nnoremap <leader>, f,a<cr><esc>
+
 nnoremap <leader>hu :SignifyHunkUndo<cr>
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hh :SignifyDiff<cr>
@@ -51,6 +54,8 @@ map <Leader>e <Plug>(easymotion-bd-w)
 nnoremap cmc dt(c%
 nnoremap dmc dt(d%
 nmap ymc vf(%y
+nnoremap dat df"df"
+nnoremap cat vf"f"c
 
 nnoremap + "+
 
