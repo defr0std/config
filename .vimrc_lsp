@@ -30,7 +30,6 @@ let g:coc_user_config['prettier.neverIndentImports']=1
 let g:coc_user_config['typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces']=1
 let g:coc_user_config['typescript.preferences.importModuleSpecifier']='relative'
 let g:coc_user_config['typescript.preferences.quoteStyle']='double'
-let g:coc_user_config['tslint.autoFixOnSave']=1
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -68,6 +67,7 @@ nmap <Leader>r <Plug>(coc-rename)
 nmap <Leader>k :call CocAction('format')<cr>
 nmap <Leader>J <Plug>(coc-fix-current)
 nnoremap <Leader>j :CocAction<cr>
+nnoremap <Leader>l :CocList actions<cr>
 
 nnoremap <Leader>vh :call <sid>show_documentation()<cr>
 nnoremap <Leader>vo :<C-u>CocList outline<cr>
