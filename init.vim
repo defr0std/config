@@ -14,3 +14,4 @@ runtime .vimrc_local
 call plug#end()
 
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE

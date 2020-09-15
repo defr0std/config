@@ -68,6 +68,7 @@ nmap <Leader>k :call CocAction('format')<cr>
 nmap <Leader>J <Plug>(coc-fix-current)
 nnoremap <Leader>j :CocAction<cr>
 nnoremap <Leader>l :CocList actions<cr>
+nnoremap <Leader>L :call CocAction('runCommand', 'tslint.fixAllProblems')<cr>
 
 nnoremap <Leader>vh :call <sid>show_documentation()<cr>
 nnoremap <Leader>vo :<C-u>CocList outline<cr>

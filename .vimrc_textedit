@@ -22,6 +22,7 @@ let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 
 nnoremap <Leader>; $a;<Esc>
+nnoremap <leader>, $a,<esc>
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
 
@@ -35,7 +36,6 @@ xnoremap <leader>D "_D
 vnoremap p "_dP
 
 nnoremap <leader>x $x
-nnoremap <leader>, f,a<cr><esc>
 
 nnoremap <leader>hu :SignifyHunkUndo<cr>
 nnoremap <leader>hd :SignifyHunkDiff<cr>
