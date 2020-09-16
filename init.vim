@@ -13,4 +13,4 @@ runtime .vimrc_local
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula

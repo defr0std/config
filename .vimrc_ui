@@ -1,4 +1,8 @@
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -11,13 +15,40 @@ set hlsearch
 set mouse=a
 set number relativenumber
 set ruler
-set splitright
 set splitbelow
+set splitright
+set termguicolors
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline#extensions#tabline#enabled = 1
+
+syntax on
 
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
 if &term == 'xterm-256color' || &term == 'screen-256color'
   let &t_SI = "\<Esc>[6 q"
   let &t_EI = "\<Esc>[2 q"
 endi
+
+ hi link cString DraculaYellow
+ hi link cppString DraculaYellow
+ hi link cCppString DraculaYellow
+
+ hi link cCustomClass DraculaPurple
+ hi link cCustomClassName DraculaPurple
+
+ hi link cType DraculaCyanItalic
+ hi link cppType DraculaCyanItalic
+
+ hi link cStatement DraculaPink
+ hi link cStructure DraculaPink
+ hi link cppStructure DraculaPink
+ hi link cppModifier DraculaPink
+ hi link cDefine DraculaPink
+ hi link cPreCondit DraculaPink
+ hi link cPreConditMatch DraculaPink
+
+ hi link cInclude DraculaPinkItalic
+
+ hi link cCustomAccessKey DraculaPink
+ hi link cStorageClass DraculaPink
