@@ -14,3 +14,4 @@ runtime .vimrc_local
 call plug#end()
 
 colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
